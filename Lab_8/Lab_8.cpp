@@ -1,31 +1,29 @@
 #include <stdio.h>
-#include <locale.h>
 #include <malloc.h>
 
 
 int main()
 {
-	setlocale(LC_ALL, "Russian");
 	int n, c, i, j, co1 = 0, co2 = 0;
 	char* arr;
-	printf("Введите натуральное число n: ");
+	printf("Enter the string length n: ");
 
 	while ((scanf_s("%d", &n) == 0))
 	{
-		printf("Введите верное числовое значение ещё раз: ");
+		printf("Enter the right number: ");
 		rewind(stdin);
 	}
 	rewind(stdin);
 
 	if (!(arr = (char*)calloc(n + 1, sizeof(char))))
 	{
-		printf("Ошибка..."); return 0;
+		printf("Wrong..."); return 0;
 	}
 
-	printf("\nВведите строку длиной не более n = %d символов: ", n);
+	printf("\nEnter the string, number of characters equals n = %d : ", n);
 
 	fgets(arr, n + 1, stdin);
-	printf("\nИсходная строка: %s\n", arr);
+	printf("\nSource string: %s\n", arr);
 
 
 	for (i = 0; i < n + 1; i++)
@@ -33,7 +31,7 @@ int main()
 		if (arr[i] == '#')
 			co1++;
 	}
-	printf("Количество # равно %d\n", co1);
+	printf("Number of # equals %d\n", co1);
 
 	for (i = 0; i<n+1 ; i++)
 	{
@@ -43,12 +41,12 @@ int main()
 		}
 			
 	}
-	printf("Количество символов равно %d\n\n", co2);
+	printf("Number of characters equals %d\n\n", co2);
 
 
 	if (co1 > co2)
 	{
-		printf("Количество решеток больше количества символов..\n");
+		printf("The number of # is more then the number of other characters..\n");
 		return 0;
 	}
 
@@ -67,7 +65,7 @@ int main()
 		}
 	}
 
-	printf("\nИтоговая строка строка: %s\n", arr);
+	printf("\nFinal string is: %s\n", arr);
 	free(arr);
 	return 0;
 }
